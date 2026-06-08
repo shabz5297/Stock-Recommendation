@@ -3,10 +3,10 @@ Configuration and constants for the stock recommendation engine
 """
 
 # Data parameters
-TICKERS = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA', 'JPM', 'GS', 'BLK']
-START_DATE = '2020-01-01'
-END_DATE = '2024-12-31'
-BACKTEST_START = '2023-01-01'  # Start backtesting from this date
+TICKERS = ['NOW', 'CSCO', 'EQIX', 'NVDA', 'APLD', 'NBIS', 'NVTS', 'WULF']
+START_DATE = '2026-05-01'
+END_DATE = '2026-06-01'
+BACKTEST_START = '2025-05-01'  # Start backtesting from this date
 
 # Feature parameters
 RSI_PERIOD = 14
