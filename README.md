@@ -1,2 +1,2 @@
 # Stock-Recommendation
-Intelligent machine learning  system that recommends stocks based on multiple reccomndation algorithms 
+Machine learning system that suggest stocks based on multiple recommendation algorithms 
