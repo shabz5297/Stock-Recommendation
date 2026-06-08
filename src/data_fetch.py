@@ -22,7 +22,6 @@ class StockDataFetcher:
 		self.fundamentals = None
 
 	def fetch_price_data(self) -> pd.DataFrame:
-	#download  for all tickers
 		logger.info(f"Fetching price data for {len(self.tickers)} stocks...")
 		try:
 			data = yf.download(
@@ -37,7 +36,7 @@ class StockDataFetcher:
 
 			time.sleep(1)  # rate limiting
 
-		#Return only close prices
+			#Return only close prices
 			if len(self.tickers) == 1:
 				self.price_data = pd.DataFrame(
 					data['Close'],
@@ -67,7 +66,7 @@ class StockDataFetcher:
 					stock = yf.Ticker(ticker)
 					info = stock.info
 
-			#extract key attributes
+					#extract key attributes
 					fundamentals[ticker] = {
 						'pe_ratio': info.get('trailingPE'),
 						'roe': info.get('returnOnEquity'),
@@ -122,18 +121,21 @@ class StockDataFetcher:
 
 		return returns.dropna()
 
-			# Test it
+# Test it
 if __name__ == "__main__":
 	from config import TICKERS, START_DATE, END_DATE, BACKTEST_START
 	handler = StockDataFetcher(TICKERS, START_DATE, END_DATE)
-			# Fetch data
+
+	# Fetch data
 	prices = handler.fetch_price_data()
-	print(f"\n✅ Price data shape: {prices.shape}")
+	print(f"\n ✔ Price data shape: {prices.shape}")
 	print(prices.head())
-			# Validate
+
+	# Validate
 	handler.validate_data()
-			# Get returns
+
+	# Get returns
 	returns = handler.get_returns()
-	print(f"\n✅ Returns shape: {returns.shape}")
+	print(f"\n ✔ Returns shape: {returns.shape}")
 	print(f"Mean daily return: {returns.mean().mean():.4%}")
 	print(f"Daily volatility: {returns.std().mean():.4%}")

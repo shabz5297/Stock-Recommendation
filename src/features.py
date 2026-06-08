@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import logging
 
-logger.getLogger(__name__)
+logger = logger.getLogger(__name__)
 
 class FeatureEngineering:
 
