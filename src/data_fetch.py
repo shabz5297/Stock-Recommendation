@@ -35,7 +35,7 @@ class StockDataFetcher:
 			if data.empty:
 				raise ValueError("No data provided by Yahoo Finance.")
 
-			time.sleep(2)  # Reduced sleep slightly to avoid request error
+			time.sleep(1)  # rate limiting
 
 		#Return only close prices
 			if len(self.tickers) == 1:
